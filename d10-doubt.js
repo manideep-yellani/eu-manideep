@@ -16,7 +16,9 @@ const products = [
   { name: "Tablet", price: 800, quantity: 5 }
 ];
 // Output: ["Phone", "Tablet"]
-
+sales=products.map(product=>[product.price*product.price,product.name])
+sales.sort((a,b)=>a[0]-b[0])
+console.log([sales[0][1],sales[1][1]])
 
 // 3. Group books by genre , output = {fiction:[] , non-fiction:[]}
 const books = [
@@ -84,7 +86,11 @@ const ordersList = [
 //   { orderId: 101, customerId: 1, name: "Alice" },
 //   { orderId: 102, customerId: 2, name: "Bob" }
 // ]
-
+ans=customers.map((customer)=>{
+let oid=ordersList.find(order=>order.customerId===customer.id)
+return {...customer,...oid}
+})
+console.log(ans)
 
 // 7. Find overlapping bookings
 const bookings = [
